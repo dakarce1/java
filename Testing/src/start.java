@@ -15,11 +15,10 @@ public class start extends JFrame implements ActionListener
     JMenuBar topMenuBar;
     JMenu fileMenu, editMenu, searchMenu, helpMenu;
     JMenuItem exitItem, fontItem, foreColor, backColor, helpItem, aboutItem;
-    String  aboutBoxString = (" Application written by\n Dr. Gary Hill BSc(Hons) MSc MPhil PhD PGCE SFHEA FBCS CITP\n"
-			+ " Head of Department - Business Computing Computing & Games,\n"
-			+ " University of Northampton\n University Drive,\n"
-			+ " Northampton, NN1 5PH,\n United Kingdom\n E-Mail: gary.hill@northampton.ac.uk\n"
-			+ " http://www.computing.northampton.ac.uk/~gary/\n") ;
+    String  aboutBoxString = ("Karolis Malinauskas"
+    							+ "\nUniversity of Northampton"
+    							+ "\nBSc Computing (Web technology and security)"
+    							+ "\nStudent ID: 18431618") ;
     public static void main (String[] args)
     {
         start frame = new start();
@@ -60,18 +59,21 @@ public class start extends JFrame implements ActionListener
         optionLabel = new JLabel("Option: ");
         sidePanel.add(optionLabel);
         optionText = new JTextField("1");
+        optionText.setEditable(false);
         optionText.setPreferredSize(new Dimension(100, 20));
         sidePanel.add(optionText);
         
         squareLabel = new JLabel("Square: ");
         sidePanel.add(squareLabel);
         squareText = new JTextField("17");
+        squareText.setEditable(false);
         squareText.setPreferredSize(new Dimension(100, 20));
         sidePanel.add(squareText);
         
         directionLabel = new JLabel("Direction: ");
         sidePanel.add(directionLabel);
         directionText = new JTextField("E");
+        directionText.setEditable(false);
         directionText.setPreferredSize(new Dimension(100, 20));
         sidePanel.add(directionText);
         
