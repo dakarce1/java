@@ -26,6 +26,7 @@ public class start extends JFrame implements ActionListener
         frame.createGUI();
         frame.setVisible(true);
         frame.setResizable(false);
+        
     }
  
     private void createGUI()
