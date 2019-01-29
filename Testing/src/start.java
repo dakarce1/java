@@ -36,7 +36,7 @@ public class start extends JFrame implements ActionListener
         
         menuSetup();
         
-        /* Panels */
+        /* Panels  */
         
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(600, 500));
