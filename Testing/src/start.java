@@ -26,18 +26,18 @@ public class start extends JFrame implements ActionListener
     public static void main (String[] args)
     {
         start frame = new start();
-        frame.setSize(810, 650);
-        frame.createGUI();
+        frame.setSize(810, 650);						//Setting the size of the frame
+        frame.createGUI();								//GUI method
         frame.setVisible(true);
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);						//Setting window to be non-resizable
+        frame.setLocationRelativeTo(null);				//Setting the game to start in the center
         }
  
     private void createGUI()
     {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         Container window = getContentPane();
-        window.setLayout(new FlowLayout(0) );
+        window.setLayout(new FlowLayout(0));
         
         menuSetup();
         
@@ -175,11 +175,13 @@ public class start extends JFrame implements ActionListener
             {
                 System.err.println("Act Icon ImageIcon "+e);
             }
-        	map[i].setIcon(iconMap);
+        	
+        	map[i].setIcon(iconMap);					//Drivable icons
+        	
         	if (i == 1 || i==2 ||i == 3 || i==4 ||i == 5 || i==6 ||i == 7 || i==8 || i == 9 || i==10 ||i == 11 || i == 12 || i == 13 || i == 14||
         		i == 193 || i == 194 ||i == 195 || i == 196 || i == 197 || i == 198 || i == 199 || i == 200 || i == 201 || i == 202 || i == 203 || i == 204 || i == 205 || i == 206 ||
         		i == 51 || i== 52 ||i == 53 || i== 54 ||i == 55 || i== 56 ||i == 57 || i== 58 || i == 59 || i == 60 ||
-        		i == 147 || i== 148 ||i == 149 || i== 150 ||i == 151 || i== 152 ||i == 153 || i== 154 || i == 155 || i == 156){
+        		i == 147 || i== 148 ||i == 149 || i== 150 ||i == 151 || i== 152 ||i == 153 || i== 154 || i == 155 || i == 156){					//Horizontal icons
         		try	
                 {
                 	iconHori = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-horiz.png")));
@@ -189,11 +191,12 @@ public class start extends JFrame implements ActionListener
                     System.err.println("Act Icon ImageIcon "+e);
                 }
             	map[i].setIcon(iconHori);
-            	}
+            }
+        	
         	else if (i == 16 || i == 32 ||i == 48 || i == 64 || i == 80 || i == 96 || i == 112 || i == 128 || i == 144 || i == 160 || i == 176 ||
         			i == 31 || i == 47 ||i == 63 || i == 79 || i == 95 || i == 111 || i == 127 || i == 143 || i == 159 || i == 175 || i == 191 ||
         			i == 66 || i == 82 ||i == 98 || i== 114 ||i == 130 ||
-        			i == 77 || i== 93 ||i == 109 || i== 125 ||i == 141) {
+        			i == 77 || i== 93 ||i == 109 || i== 125 ||i == 141) {				//Vertical icons
         		try	
                 {
                 	iconVert = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-vert.png")));
@@ -204,7 +207,8 @@ public class start extends JFrame implements ActionListener
                 }
             	map[i].setIcon(iconVert);
         	}
-        	else if (i == 0 || i == 50) {
+        	
+        	else if (i == 0 || i == 50) {				//North west corner icons
         		try	
                 {
                 	iconNw = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-NW.png")));
@@ -215,7 +219,8 @@ public class start extends JFrame implements ActionListener
                 }
             	map[i].setIcon(iconNw);
         	}
-        	else if (i == 15 || i == 61) {
+        	
+        	else if (i == 15 || i == 61) {				//North east corner icons
         		try	
                 {
                 	iconNe = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-NE.png")));
@@ -226,7 +231,8 @@ public class start extends JFrame implements ActionListener
                 }
             	map[i].setIcon(iconNe);
         	}
-        	else if (i == 192 || i == 146) {
+        	
+        	else if (i == 192 || i == 146) {			//South west corner icons
         		try	
                 {
                 	iconSw = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-SW.png")));
@@ -237,7 +243,8 @@ public class start extends JFrame implements ActionListener
                 }
             	map[i].setIcon(iconSw);
         	}
-        	else if (i == 207 || i == 157) {
+        	
+        	else if (i == 207 || i == 157) {			//South east corner icons
         		try	
                 {
                 	iconSe = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-SE.png")));
@@ -248,11 +255,9 @@ public class start extends JFrame implements ActionListener
                 }
             	map[i].setIcon(iconSe);
         	}
-        	map[i].setBorderPainted(false);
+        	
+        	map[i].setBorderPainted(false); 			//Setting the icons without borders
         }
-        
-    
-        
         
         mainPanel.setLayout(new GridLayout(13, 16));
         
@@ -279,22 +284,22 @@ public class start extends JFrame implements ActionListener
     	/* Top Menu */
     	
     public void menuSetup() {
-    	topMenuBar = new JMenuBar();      //create a menu bar
-        setJMenuBar(topMenuBar);          //set the menu bar to the JFrame
+    	topMenuBar = new JMenuBar();
+        setJMenuBar(topMenuBar);
+        
+        fileMenu = new JMenu("Scenario");
+        exitItem = new JMenuItem("Exit");
+        fileMenu.add(exitItem);
+        exitItem.addActionListener(this);
+        topMenuBar.add(fileMenu);
 
-        fileMenu = new JMenu("Scenario");     // File menu, with open, save, exit
-        exitItem = new JMenuItem("Exit"); //EXIT item
-        fileMenu.add(exitItem);           //add the items to the menu
-        exitItem.addActionListener(this); //add the listener to the item
-        topMenuBar.add(fileMenu);         //add the menu to the menu bar
-
-        editMenu = new JMenu("Edit");     // edit menu, could have copy, paste
+        editMenu = new JMenu("Edit");
         topMenuBar.add(editMenu );
 
         searchMenu = new JMenu("Controls");
         topMenuBar.add(searchMenu);
 
-        helpMenu = new JMenu("Help");   // help menu, with  help topics, about application
+        helpMenu = new JMenu("Help");
         helpItem = new JMenuItem("Help Topics");
         helpMenu.add(helpItem);
         helpItem.addActionListener(this);
