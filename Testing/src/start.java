@@ -13,8 +13,9 @@ public class start extends JFrame implements ActionListener
     private JPanel mainPanel, sidePanel, bottomPanel;
     private JLabel optionLabel, squareLabel, directionLabel;
     private JTextField optionText, squareText, directionText;
-    private Icon iconAct, iconRun, iconReset, iconMap;
+    private Icon iconAct, iconRun, iconReset, iconMap, iconHori, iconVert, iconNw, iconNe, iconSe, iconSw;
     JButton map[] = new JButton[208];
+    int [] bricks = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,32,48,64,80,96,112,128,144,160,176,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,31,47,63,79,95,111,127,143,159,175,191};
     JMenuBar topMenuBar;
     JMenu fileMenu, editMenu, searchMenu, helpMenu;
     JMenuItem exitItem, fontItem, foreColor, backColor, helpItem, aboutItem;
@@ -25,10 +26,11 @@ public class start extends JFrame implements ActionListener
     public static void main (String[] args)
     {
         start frame = new start();
-        frame.setSize(810,650);
+        frame.setSize(810, 650);
         frame.createGUI();
         frame.setVisible(true);
         frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
         }
  
     private void createGUI()
@@ -174,10 +176,85 @@ public class start extends JFrame implements ActionListener
                 System.err.println("Act Icon ImageIcon "+e);
             }
         	map[i].setIcon(iconMap);
-        	//map[i].setBorderPainted(false);
+        	if (i == 1 || i==2 ||i == 3 || i==4 ||i == 5 || i==6 ||i == 7 || i==8 || i == 9 || i==10 ||i == 11 || i == 12 || i == 13 || i == 14||
+        		i == 193 || i == 194 ||i == 195 || i == 196 || i == 197 || i == 198 || i == 199 || i == 200 || i == 201 || i == 202 || i == 203 || i == 204 || i == 205 || i == 206 ||
+        		i == 51 || i== 52 ||i == 53 || i== 54 ||i == 55 || i== 56 ||i == 57 || i== 58 || i == 59 || i == 60 ||
+        		i == 147 || i== 148 ||i == 149 || i== 150 ||i == 151 || i== 152 ||i == 153 || i== 154 || i == 155 || i == 156){
+        		try	
+                {
+                	iconHori = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-horiz.png")));
+                }
+                catch (Exception e)
+                {
+                    System.err.println("Act Icon ImageIcon "+e);
+                }
+            	map[i].setIcon(iconHori);
+            	}
+        	else if (i == 16 || i == 32 ||i == 48 || i == 64 || i == 80 || i == 96 || i == 112 || i == 128 || i == 144 || i == 160 || i == 176 ||
+        			i == 31 || i == 47 ||i == 63 || i == 79 || i == 95 || i == 111 || i == 127 || i == 143 || i == 159 || i == 175 || i == 191 ||
+        			i == 66 || i == 82 ||i == 98 || i== 114 ||i == 130 ||
+        			i == 77 || i== 93 ||i == 109 || i== 125 ||i == 141) {
+        		try	
+                {
+                	iconVert = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-vert.png")));
+                }
+                catch (Exception e)
+                {
+                    System.err.println("Act Icon ImageIcon "+e);
+                }
+            	map[i].setIcon(iconVert);
+        	}
+        	else if (i == 0 || i == 50) {
+        		try	
+                {
+                	iconNw = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-NW.png")));
+                }
+                catch (Exception e)
+                {
+                    System.err.println("Act Icon ImageIcon "+e);
+                }
+            	map[i].setIcon(iconNw);
+        	}
+        	else if (i == 15 || i == 61) {
+        		try	
+                {
+                	iconNe = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-NE.png")));
+                }
+                catch (Exception e)
+                {
+                    System.err.println("Act Icon ImageIcon "+e);
+                }
+            	map[i].setIcon(iconNe);
+        	}
+        	else if (i == 192 || i == 146) {
+        		try	
+                {
+                	iconSw = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-SW.png")));
+                }
+                catch (Exception e)
+                {
+                    System.err.println("Act Icon ImageIcon "+e);
+                }
+            	map[i].setIcon(iconSw);
+        	}
+        	else if (i == 207 || i == 157) {
+        		try	
+                {
+                	iconSe = new ImageIcon(Toolkit.getDefaultToolkit().createImage(start.class.getResource("wall-SE.png")));
+                }
+                catch (Exception e)
+                {
+                    System.err.println("Act Icon ImageIcon "+e);
+                }
+            	map[i].setIcon(iconSe);
+        	}
+        	map[i].setBorderPainted(false);
         }
         
-        mainPanel.setLayout(new GridLayout(16, 13));
+    
+        
+        
+        mainPanel.setLayout(new GridLayout(13, 16));
         
         try	
         {
